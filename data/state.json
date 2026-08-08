@@ -1,114 +1,33 @@
 {
-  "seen": {
-    "http://www.sxkszx.cn/news/202686/n0606129294.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第10号",
-      "at": "2026-08-08 07:23:29"
-    },
-    "http://www.sxkszx.cn/news/202686/n8528129293.html": {
-      "title": "山西省2026年普通高校招生体育专科批院校专业组投档最低分",
-      "at": "2026-08-08 07:23:30"
-    },
-    "http://www.sxkszx.cn/news/202686/n4392129292.html": {
-      "title": "山西省2026年普通高校招生艺术专科批院校专业组投档最低分",
-      "at": "2026-08-08 07:23:32"
-    },
-    "http://www.sxkszx.cn/news/202684/n2208129289.html": {
-      "title": "山西省2026年普通高校招生专科（高职）批录取最低控制分数线公告",
-      "at": "2026-08-08 07:23:33"
-    },
-    "http://www.sxkszx.cn/news/2026728/n1274127285.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第9号",
-      "at": "2026-08-08 07:23:33"
-    },
-    "http://www.sxkszx.cn/news/2026727/n8278127280.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第8号",
-      "at": "2026-08-08 07:23:33"
-    },
-    "http://www.sxkszx.cn/news/2026726/n9102127278.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第7号",
-      "at": "2026-08-08 07:23:33"
-    },
-    "http://www.sxkszx.cn/news/2026725/n7329127272.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第6号",
-      "at": "2026-08-08 07:23:33"
-    },
-    "http://www.sxkszx.cn/news/2026724/n7072127270.html": {
-      "title": "山西省2026年普通高校招生普通本科批院校专业组投档最低分",
-      "at": "2026-08-08 07:23:34"
-    },
-    "http://www.sxkszx.cn/news/2026724/n9188127269.html": {
-      "title": "山西省2026年普通高考未投档考生成绩分段统计表",
-      "at": "2026-08-08 07:23:34"
-    },
-    "http://www.sxkszx.cn/news/2026724/n3580127268.html": {
-      "title": "山西省2026年普通高校招生网上填报志愿（第四段）公告",
-      "at": "2026-08-08 07:23:34"
-    },
-    "http://www.sxkszx.cn/news/2026720/n2316127261.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第5号",
-      "at": "2026-08-08 07:23:34"
-    },
-    "http://www.sxkszx.cn/news/2026720/n7699127260.html": {
-      "title": "山西省2026年普通高校招生优秀运动员保送录取名单",
-      "at": "2026-08-08 07:23:34"
-    },
-    "http://www.sxkszx.cn/news/2026719/n0241127259.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第4号",
-      "at": "2026-08-08 07:23:34"
-    },
-    "http://www.sxkszx.cn/news/2026718/n9987127256.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第3号",
-      "at": "2026-08-08 07:23:34"
-    },
-    "http://www.sxkszx.cn/news/2026718/n5337127255.html": {
-      "title": "山西省2026年普通高校招生体育本科批院校专业组投档最低分",
-      "at": "2026-08-08 07:23:35"
-    },
-    "http://www.sxkszx.cn/news/2026718/n5358127254.html": {
-      "title": "山西省2026年普通高校招生艺术本科批院校专业组投档最低分",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/2026715/n4377127250.html": {
-      "title": "山西省2026年普通高校招生网上填报志愿（第三段）公告",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/2026714/n8680127249.html": {
-      "title": "山西省2026年普通高校招生普通本科提前批B段院校专业组投档最低分",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/2026713/n2431127248.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第2号",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/2026712/n8980127246.html": {
-      "title": "山西省2026年普通高校招生征集志愿公告[2026]第1号",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/202679/n8057127245.html": {
-      "title": "山西省2026年普通高校招生录取咨询热线开通",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/202679/n2462127244.html": {
-      "title": "山西省2026年普通高校招生保送生录取名单",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/202674/n1608127242.html": {
-      "title": "山西省2026年普通高校招生录取时间安排",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/202671/n2105127241.html": {
-      "title": "山西省2026年普通高校招生网上填报志愿（第二段）公告",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/2026630/n7377127240.html": {
-      "title": "2026年普通高校本科层次招生计划信息补充调整公告",
-      "at": "2026-08-08 07:23:38"
-    },
-    "http://www.sxkszx.cn/news/2026630/n5228127239.html": {
-      "title": "关于公布山西省2026年全国普通高校招生特殊类型计划专业目录的公告",
-      "at": "2026-08-08 07:23:38"
-    }
-  },
-  "probed": {},
-  "last_run": "2026-08-08 10:28:52"
+ "seen": [
+  "http://www.sxkszx.cn/news/202686/n0606129294.html",
+  "http://www.sxkszx.cn/news/202686/n8528129293.html",
+  "http://www.sxkszx.cn/news/202686/n4392129292.html",
+  "http://www.sxkszx.cn/news/202684/n2208129289.html",
+  "http://www.sxkszx.cn/news/2026728/n1274127285.html",
+  "http://www.sxkszx.cn/news/2026727/n8278127280.html",
+  "http://www.sxkszx.cn/news/2026726/n9102127278.html",
+  "http://www.sxkszx.cn/news/2026725/n7329127272.html",
+  "http://www.sxkszx.cn/news/2026724/n7072127270.html",
+  "http://www.sxkszx.cn/news/2026724/n9188127269.html",
+  "http://www.sxkszx.cn/news/2026724/n3580127268.html",
+  "http://www.sxkszx.cn/news/2026720/n2316127261.html",
+  "http://www.sxkszx.cn/news/2026720/n7699127260.html",
+  "http://www.sxkszx.cn/news/2026719/n0241127259.html",
+  "http://www.sxkszx.cn/news/2026718/n9987127256.html",
+  "http://www.sxkszx.cn/news/2026718/n5337127255.html",
+  "http://www.sxkszx.cn/news/2026718/n5358127254.html",
+  "http://www.sxkszx.cn/news/2026715/n4377127250.html",
+  "http://www.sxkszx.cn/news/2026714/n8680127249.html",
+  "http://www.sxkszx.cn/news/2026713/n2431127248.html",
+  "http://www.sxkszx.cn/news/2026712/n8980127246.html",
+  "http://www.sxkszx.cn/news/202679/n8057127245.html",
+  "http://www.sxkszx.cn/news/202679/n2462127244.html",
+  "http://www.sxkszx.cn/news/202674/n1608127242.html",
+  "http://www.sxkszx.cn/news/202671/n2105127241.html",
+  "http://www.sxkszx.cn/news/2026630/n7377127240.html",
+  "http://www.sxkszx.cn/news/2026630/n5228127239.html"
+ ],
+ "probed": {},
+ "last_run": "2026-08-08 10:29:35"
 }

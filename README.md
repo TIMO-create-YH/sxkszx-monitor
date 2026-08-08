@@ -74,20 +74,42 @@ python3 monitor.py --loop 60
 - `推送已就绪 → Server酱(微信)` ← 配好了
 - `! 未配置推送渠道，发现新内容只会记到本地` ← 没配好，重跑 `bash setup_push.sh`
 
+### 给云端（GitHub Actions）也配上推送
+
+云端读不到本地的 `.env`，密钥要单独存进 GitHub 的加密保险箱：
+
+```bash
+export GH_TOKEN="你的GitHub令牌"
+export GH_REPO="你的用户名/sxkszx-monitor"
+python3 set_secret.py SCKEY 你的SendKey
+```
+
+密钥经 libsodium 公钥加密后才上传，网页上永远显示为 `***`，
+只有 Actions 运行时能解出来用。同样支持上面表格里的所有渠道名。
+
 ### 3. 挂云端 7×24（不用开电脑）
 
-推到 GitHub 私有仓库，`.github/workflows/monitor.yml` 已经配好：
+**本仓库已经部署完毕**，无需再配：
+
+| 项目 | 地址 |
+|---|---|
+| 查询页 | https://timo-create-yh.github.io/sxkszx-monitor/ |
+| 运行记录 | https://github.com/TIMO-create-YH/sxkszx-monitor/actions |
+
+自动任务每 5 分钟触发一次，**单次任务内部再跑 4.5 分钟密集探测（每 40 秒一轮）**，
+抓到新数据自动提交回仓库并重新发布查询页。
+
+<details>
+<summary>想自己另建一个？三步</summary>
 
 1. 仓库 → Settings → Secrets and variables → Actions → 添加 `SCKEY`
 2. 仓库 → Settings → Actions → General → Workflow permissions → 选 **Read and write**
 3. 仓库 → Settings → Pages → Source 选 **GitHub Actions**
-
-之后每 5 分钟自动跑一次，数据自动提交回仓库，
-查询页自动发布到 `https://你的用户名.github.io/仓库名/`，手机随时打开。
+</details>
 
 **说句实话**：GitHub Actions 的定时任务在高峰期常有 5~15 分钟排队延迟，
-这是免费额度的固有限制。真要抢那几分钟，就在自己电脑上跑 `--loop 60`，
-两边同时开也不冲突。
+这是免费额度的固有限制。所以才加了任务内密集探测窗口把实际密度拉回 40 秒级。
+真要抢那几分钟，再在自己电脑上跑 `--loop 60`，两边同时开也不冲突。
 
 ---
 
