@@ -1,0 +1,111 @@
+name: 山西录取线监控
+
+on:
+  schedule:
+    # GitHub cron 最小粒度 5 分钟，且高峰期常有 5~15 分钟排队延迟。
+    # 对策：每次任务内部再跑一个 4.5 分钟的密集探测窗口（每 40 秒一次），
+    # 这样即便 cron 被延迟，实际探测密度依然能到 40 秒级。
+    - cron: '*/5 * * * *'
+  workflow_dispatch:        # 支持在网页上手动点一下立即跑
+  push:
+    branches: [main]
+
+permissions:
+  contents: write
+  pages: write
+  id-token: write
+
+concurrency:
+  group: sx-monitor
+  cancel-in-progress: false
+
+jobs:
+  watch:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    outputs:
+      changed: ${{ steps.commit.outputs.changed }}
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: 安装 PDF 解析工具
+        run: sudo apt-get update -qq && sudo apt-get install -y -qq poppler-utils
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: 安装依赖
+        run: pip install -q requests
+
+      - name: 密集探测（4.5 分钟窗口，每 40 秒一次）
+        env:
+          SCKEY:         ${{ secrets.SCKEY }}
+          PUSHPLUS:      ${{ secrets.PUSHPLUS }}
+          BARK_URL:      ${{ secrets.BARK_URL }}
+          FEISHU_HOOK:   ${{ secrets.FEISHU_HOOK }}
+          DINGTALK_HOOK: ${{ secrets.DINGTALK_HOOK }}
+          WXWORK_HOOK:   ${{ secrets.WXWORK_HOOK }}
+          SMTP_HOST:     ${{ secrets.SMTP_HOST }}
+          SMTP_PORT:     ${{ secrets.SMTP_PORT }}
+          SMTP_USER:     ${{ secrets.SMTP_USER }}
+          SMTP_PASS:     ${{ secrets.SMTP_PASS }}
+          MAIL_TO:       ${{ secrets.MAIL_TO }}
+        run: python3 monitor.py --loop 40 --duration 270
+
+      - name: 提交抓到的数据
+        id: commit
+        run: |
+          git config user.name  "sx-monitor"
+          git config user.email "bot@users.noreply.github.com"
+          git add -A data site
+          if git diff --staged --quiet; then
+            echo "本轮无更新"
+            echo "changed=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "自动更新：$(TZ=Asia/Shanghai date '+%m-%d %H:%M') 录取数据"
+            # 并发或手动改动可能导致 push 冲突，重试 3 次
+            for i in 1 2 3; do
+              if git push; then
+                echo "推送成功"; break
+              fi
+              echo "推送冲突，第 $i 次重试..."
+              git pull --rebase --autostash || true
+              sleep 3
+            done
+            echo "changed=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: 存档本轮数据（可从 Actions 页面下载）
+        if: steps.commit.outputs.changed == 'true'
+        uses: actions/upload-artifact@v4
+        with:
+          name: 录取数据-${{ github.run_number }}
+          path: |
+            data/pdf/**
+            site/index.html
+          retention-days: 30
+          if-no-files-found: ignore
+
+  # 有更新时重新发布查询页；首次推送和手动触发也强制发一次，
+  # 否则首次部署时因为"无变化"会被跳过，页面永远出不来。
+  pages:
+    needs: watch
+    if: >-
+      needs.watch.outputs.changed == 'true' ||
+      github.event_name == 'push' ||
+      github.event_name == 'workflow_dispatch'
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+    steps:
+      - uses: actions/checkout@v4
+        with:
+          ref: main
+      - uses: actions/configure-pages@v5
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: site
+      - id: deployment
+        uses: actions/deploy-pages@v4

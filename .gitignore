@@ -1,0 +1,15 @@
+# 推送密钥 —— 绝对不能提交到 GitHub
+.env
+*.key
+
+# 运行时产物
+__pycache__/
+*.pyc
+data/watch.log
+data/watch.pid
+nohup.out
+
+# 原始 PDF 一并存档 —— 总共才 3.5M，留着当凭证，
+# 就算官网哪天把文件撤下来，你手里这份还在。
+# 嫌仓库大就取消下面这行的注释。
+# data/pdf/

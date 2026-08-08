@@ -1,0 +1,30 @@
+{
+  "channels": ["ptgk"],
+
+  "_comment_channels": "要监控的栏目。ptgk=普通高考 dksxks=对口升学 zsbks=专升本 zzks=中考 crgk=成人高考",
+
+  "keywords": [
+    "投档最低分", "控制分数线", "征集志愿", "录取", "分段统计",
+    "填报志愿", "计划", "名单"
+  ],
+
+  "priority_keywords": ["投档最低分", "控制分数线"],
+
+  "download_attachments": true,
+  "parse_pdf": true,
+  "timeout": 30,
+
+  "_comment_probe": "文件直探：官网常先传 PDF 再挂公告，HEAD 探测可抢先几分钟。下面是按历史命名规律推测的普通专科批文件名候选。",
+  "probe_files": [
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考院校专业组投档最低分_普通专科（高职）批_历史类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考院校专业组投档最低分_普通专科（高职）批_物理类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考院校专业组投档最低分_普通专科批_历史类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考院校专业组投档最低分_普通专科批_物理类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考专科院校专业组投档最低分_历史类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考专科院校专业组投档最低分_物理类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考专科院校专业组投档最低分_A历史类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考专科院校专业组投档最低分_B物理类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考专科院校专业组投档最低分_普通专科（高职）批_历史类.pdf",
+    "http://www.sxkszx.cn/files/content2026/2026年普通高考专科院校专业组投档最低分_普通专科（高职）批_物理类.pdf"
+  ]
+}
